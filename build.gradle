@@ -1,0 +1,47 @@
+group 'night-school'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+ext {
+    slf4jVersion = '1.7.25'
+    logbackVersion = '1.2.3'
+}
+
+repositories {
+    mavenCentral()
+}
+
+//List loggers = [
+//        "org.slf4j:slf4j-api:${slf4jVersion}",
+//        "org.slf4j:jcl-over-slf4j:${slf4jVersion}",
+//        "org.slf4j:log4j-over-slf4j:${slf4jVersion}",
+//        "org.slf4j:jul-to-slf4j:${slf4jVersion}",
+//        "ch.qos.logback:logback-core:${logbackVersion}",
+//        "ch.qos.logback:logback-classic:${logbackVersion}"
+//]
+//// .. 의존성에 loggers 추가
+dependencies {
+//    compile loggers
+//    compile("org.projectlombok:lombok")
+
+    testCompile 'junit:junit:4.12'
+//    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+//
+//// commons-logging, log4j, jul 의존성 제거
+//configurations {
+////    all*.exclude group: 'commons-logging', module: 'commons-logging' // replaced with jcl-over-slf4j
+////    all*.exclude group: 'log4j', module: 'log4j' // replaced with log4j-over-slf4j
+////    all*.exclude module: 'slf4j-log4j12'
+//
+//    all.collect { configuration ->
+//        configuration.exclude group: 'commons-logging', module: 'commons-logging'
+//        configuration.exclude group: 'log4j', module: 'log4j'
+//        configuration.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+//        configuration.exclude group: 'org.slf4j', module: 'slf4j-jcl'
+//        configuration.exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+//    }
+//}
