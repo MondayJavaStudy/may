@@ -1,7 +1,6 @@
 package algorithm;
 
 import com.sun.deploy.util.StringUtils;
-import org.junit.Assert;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -16,8 +15,12 @@ public class ThreeCardsGame {
     private ThreeCardsGame() {
     }
 
-    public static ThreeCardsGame of(String numbers, Integer pickNumber) {
-        Assert.assertFalse("more number", StringUtils.trimWhitespace(numbers).length() == 0);
+    static ThreeCardsGame of(String cardsAndPickCard) {
+        String[] strings = StringUtils.splitString(cardsAndPickCard, "\n");
+        return ThreeCardsGame.of(strings[0], Integer.parseInt(strings[1]));
+    }
+
+    private static ThreeCardsGame of(String numbers, Integer pickNumber) {
         return ThreeCardsGame.of(StringUtils.splitString(numbers, " "), pickNumber);
     }
 
@@ -49,6 +52,22 @@ public class ThreeCardsGame {
         List<Integer> filtered = filter(sortedArrays, pickNumber);
         filtered.forEach(v-> System.out.println(v));
         return sort(sortedArrays);
+    }
+
+    public int[] getSortedArrays() {
+        return sortedArrays;
+    }
+
+    public SortedSet<int[]> getMatchSets() {
+        return matchSets;
+    }
+
+    public int getPickNumber() {
+        return pickNumber;
+    }
+
+    public List<int[]> getMatchs() {
+        return matchs;
     }
 
     @Override

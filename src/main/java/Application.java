@@ -1,35 +1,11 @@
-import algorithm.ThreeCardsGame;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-
-import static java.lang.System.in;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) throws IOException {
-        // Given
-        StringBuilder numberString = new StringBuilder();
-        Random random = new Random();
-
-        for (int i = 0; i<20; i++) {
-            numberString.append(" ").append(String.valueOf(random.nextInt(21)));
-        }
-
-        System.out.println(numberString);
-        System.out.println("Ack your number!: ");
-        BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
-        // When
-        ThreeCardsGame game = ThreeCardsGame.of(numberString.toString(), Integer.parseInt(br.readLine()));
-//        ThreeCardsGame game = ThreeCardsGame.of("30 30 40", Integer.parseInt(br.readLine()));
-        List<int[]> combination = game.combination();
-
-        // Then
-        combination.forEach(v-> System.out.println("answer: " + v));
-
-
     }
 
     private static void collectionsLearn() {
